@@ -4,8 +4,8 @@
     class="top-0 fixed bg-slate-500 bg-opacity-50 w-full h-full"
   >
     <div class="w-96 p-5 mx-auto my-24 bg-white rounded-lg">
-      <h1>{{ header }}</h1>
-      <p>{{ text }}</p>
+      <slot name="content" />
+      <slot name="links" />
     </div>
   </div>
 </template>
