@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  props: ["header", "text"],
   methods: {
     closeModal() {
       this.$emit("close");

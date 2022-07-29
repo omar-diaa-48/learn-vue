@@ -1,18 +1,20 @@
 <template>
   <div class="flex flex-col items-center">
     <h1>{{ title }}</h1>
-    <Modal v-if="showModal" :header="header" :text="text" @close="toggleModal">
-      <template v-slot:content>
-        <h1>{{ header }}</h1>
-        <p>{{ text }}</p>
-      </template>
-      <template v-slot:links>
-        <div class="flex justify-end">
-          <button>Sign up</button>
-          <button class="ml-2" @click="toggleModal">Cancel</button>
-        </div>
-      </template>
-    </Modal>
+    <teleport to="#modal" v-if="showModal">
+      <Modal :header="header" :text="text" @close="toggleModal">
+        <template v-slot:content>
+          <h1>Sign up</h1>
+          <p>Grab your courses now!</p>
+        </template>
+        <template v-slot:links>
+          <div class="flex justify-end">
+            <button>Sign up</button>
+            <button class="ml-2" @click="toggleModal">Cancel</button>
+          </div>
+        </template>
+      </Modal>
+    </teleport>
     <button @click="toggleModal">Open Modal</button>
   </div>
 </template>
@@ -26,8 +28,6 @@ export default {
   data() {
     return {
       title: "My First Vue App :)",
-      header: "Sign up",
-      text: "Grab your courses now!",
       showModal: false,
     };
   },
