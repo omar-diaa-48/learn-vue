@@ -5,7 +5,6 @@
       v-if="showModal"
       :header="header"
       :text="text"
-      theme="sale"
       @close="toggleModal"
     />
     <button @click="toggleModal">Open Modal</button>
